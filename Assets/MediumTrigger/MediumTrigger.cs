@@ -6,16 +6,19 @@ using UnityEngine;
 public class MediumTrigger : MonoBehaviour
 {
 
-    [SerializeField] private float fStrength = default;
-
-    public Rigidbody playerBall;
     
+    public Rigidbody playerBall;
+    [SerializeField] private float fStrength = default;
 
     private void OnCollisionEnter(Collision other)
     {
         if (playerBall)
-        {
             playerBall.AddForce(-playerBall.position, ForceMode.Impulse);
-        }
+        
+        // if (playerBall)
+        //     playerBall.velocity = new Vector3(0,  -(playerBall.velocity.y) * fStrength, 0);
     }
+    
+    
+    
 }
