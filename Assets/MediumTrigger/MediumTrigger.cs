@@ -2,18 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class MediumTrigger : MonoBehaviour
 {
 
     
     public Rigidbody playerBall;
-    [SerializeField] private float fStrength = default;
+    [SerializeField] private float fStrength = 20;
 
     private void OnCollisionEnter(Collision other)
     {
+
+        Random random = new Random();
+        float rand = random.Next(-51, 51);
+        
         if (playerBall)
-            playerBall.AddForce(-playerBall.position, ForceMode.Impulse);
+            playerBall.AddForce(0,-playerBall.position.y,rand, ForceMode.Impulse);
         
         // if (playerBall)
         //     playerBall.velocity = new Vector3(0,  -(playerBall.velocity.y) * fStrength, 0);

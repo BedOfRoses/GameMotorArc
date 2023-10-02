@@ -1,28 +1,28 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using Random = System.Random;
 
-public class SoftTrigger : MonoBehaviour
+public class HardTrigger : MonoBehaviour
 {
     
     public Rigidbody playerBall;
-    [SerializeField] private float fStrength = 10f;
+    [SerializeField] private float fStrength = 34f;
     
-    
+
     private void OnCollisionEnter(Collision other)
     {
 
-
         Random random = new Random();
-
-        float rand = random.Next(-101, 101);
+        float rand = random.Next(-51, 51);
         
         if (playerBall)
-            playerBall.velocity = new Vector3(0,  -(playerBall.velocity.y) * fStrength, 0.1f * rand);
+            playerBall.AddForce(0,-playerBall.position.y,rand, ForceMode.Impulse);
+        
+        
     }
-    
-}
 
+
+   
+}
