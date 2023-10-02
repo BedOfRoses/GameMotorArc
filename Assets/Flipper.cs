@@ -28,37 +28,43 @@ public class Flipper : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var leftFlipperSpring = leftFlipper.spring;
-        leftFlipperSpring.spring = flipStrength;
+
+        JointSpring leftSpring = new JointSpring();
+        leftSpring.spring = flipStrength;
+        leftSpring.damper = dampStrength;
+
+
+        JointSpring rightSpring = new JointSpring();
+        rightSpring.spring = flipStrength;
+        rightSpring.damper = dampStrength;
         
-        
-        var rightFlipperSpring = rightFlipper.spring;
-        rightFlipperSpring.spring = flipStrength;
-        
-        
-        leftFlipperSpring.damper = dampStrength;
-        rightFlipperSpring.damper = dampStrength;
 
         
         if (Input.GetKey(KeyCode.A))
         {
             //Left
-            leftFlipperSpring.targetPosition = leftTargetPos;
-            leftFlipper.spring = leftFlipperSpring;
-            rightFlipper.useLimits = true;
+            leftSpring.targetPosition = leftTargetPos;
 
+        }
+        else
+        {
+            leftSpring.targetPosition = leftRestPos;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             // swing oppover for hinge2
-            rightFlipperSpring.targetPosition = RightTargetPos;
-            rightFlipper.spring = rightFlipperSpring;
-            rightFlipper.useLimits = true;
+            rightSpring.targetPosition = RightTargetPos;
+        }
+        else
+        {
+            rightSpring.targetPosition = rightRestPos;
         }
 
-        leftFlipperSpring.targetPosition = leftRestPos;
-        rightFlipperSpring.targetPosition = rightRestPos;
+        rightFlipper.spring = rightSpring;
+        rightFlipper.useLimits = true;
+        leftFlipper.spring = leftSpring;
+        leftFlipper.useLimits = true;
 
     }
 }
