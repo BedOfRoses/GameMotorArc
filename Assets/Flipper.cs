@@ -19,11 +19,17 @@ public class Flipper : MonoBehaviour
    [SerializeField] private float flipStrength;
    [SerializeField] private float dampStrength;
    
-
+   [SerializeField] private HUD hud;
+   
     private void Start()
     {
         leftFlipper.useSpring = true;
         rightFlipper.useSpring = true;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        hud.AddScore(9398);
     }
 
     private void FixedUpdate()

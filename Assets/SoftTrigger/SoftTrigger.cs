@@ -10,11 +10,12 @@ public class SoftTrigger : MonoBehaviour
     
     public Rigidbody playerBall;
     [SerializeField] private float fStrength = 10f;
-    
+
+    [SerializeField] private HUD hud;
     
     private void OnCollisionEnter(Collision other)
     {
-
+        hud.AddScore(1000);
 
         Random random = new Random();
 
