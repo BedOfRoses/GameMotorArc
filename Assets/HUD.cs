@@ -52,6 +52,7 @@ public class HUD : MonoBehaviour
         {
             case 0:
                 LoseScreen.SetActive(true);
+                Debug.Log("No more lives.");
                 break;
             case 1:
                 textLife.text = CurrentLives + " Life";
@@ -69,11 +70,13 @@ public class HUD : MonoBehaviour
 
     public void CloseApp()
     {
+        Debug.Log("Quitting application");
         Application.Quit();
     }
 
     public void Loadscene(string sceneString)
     {
+        Debug.Log("load scene: "+ sceneString);
         SceneManager.LoadScene(sceneString);
     }
     
