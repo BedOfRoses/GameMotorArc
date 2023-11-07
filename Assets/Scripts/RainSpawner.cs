@@ -21,10 +21,37 @@ public class RainSpawner : MonoBehaviour
     
      */
 
+     /* The prefabs that are spawned into this horrible world (simulation) . How does this raindrop not know if it's world is fake,
+      how do i know if my world is real and not fake */
      [SerializeField] private GameObject[] raindrop; // Array for the raindrops
 
+     /* Start amount */
+     [SerializeField] private float StartAmountOfRain;
+     
+     /* Max amount of entities*/
      [SerializeField] private float MaxAmountOfRaindrops;
 
+     
+     
+     [SerializeField] private bool bIsRaining = true;
+
+
+     /* The purpose of this function is to enable or disable rain function */
+     public bool bRainEnabled
+     {
+         get
+         {
+             return bIsRaining;
+         }
+
+         set
+         {
+             bIsRaining = value;
+         }
+         
+     }
+     
+     
      private void Awake()
      {
         /*
@@ -37,7 +64,34 @@ public class RainSpawner : MonoBehaviour
         
          
      }
+
+     public void FixedUpdate()
+     {
+         
+         if (bRainEnabled)
+         {
+             /* Rain logic */
+             
+             /*
+              * Spawn raindrop
+              * Set the spawn/death time for this particle/entity
+              * Destroy after given time
+              * 
+              */
+             
+             
+             
+             
+         }
+         
+         
+         
+     }
      
      
      
-}
+     
+     
+     
+     
+} // End /////////////////////////////////////////////////////////////////////////////////////////////////////////////
