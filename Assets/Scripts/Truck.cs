@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Truck : MonoBehaviour
@@ -13,6 +14,7 @@ public class Truck : MonoBehaviour
     [SerializeField] private Vector3 W; // work.
     [SerializeField] private float distance;
     [SerializeField] private float length;
+    [SerializeField] private float strength;
 
 
     private void SetUpSpringComp()
@@ -48,7 +50,7 @@ public class Truck : MonoBehaviour
     private void Awake()
     {
         
-        SetUpSpringComp();
+       
         
        
     }
@@ -95,12 +97,49 @@ public class Truck : MonoBehaviour
        // }
        
        
-       
+       CalculateSpring();
         
     }
+
+
+
+    private void CalculateSpring()
+    {
+
+        foreach (var wheel in wheels)
+        {
+
+            RaycastHit hit;
+            // if the wheel hits the ground or will repel a force 
+            if (Physics.Raycast(wheel.transform.position, wheel.transform.TransformDirection(Vector3.down), out hit,
+                    length))
+            {
+                var fAm = ForceAmount(strength, length,hit);
+                
+                wheel.gameObject.GetComponent<Rigidbody>().AddForceAtPosition(transform.up * fAm, transform.position);
+                
+                // fAm = 3 * length
+                
+            }
+            //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, length))
+            //{
+            //}
+
+        }
+        
+        
+    }
+
+
+
+    private float ForceAmount(float strengf, float lengf, RaycastHit hit)
+    {
+
+        // var forzamo = strengf * (lengf - Mathf.Pow(hit.distance, 2f) / lengf) / lengf;
+        var bingo = (Mathf.Pow(lengf - hit.distance, 2f) / lengf * strengf) / lengf;
+        return bingo;
+    }
     
-    
-   
     
     
     
