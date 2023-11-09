@@ -83,15 +83,12 @@ public class RainSpawner : MonoBehaviour
              /*
               * Spawn raindrop
               * Set the spawn/death time for this particle/entity
-              * Destroy after given time
-              * 
+              * Destroy after given time 
               */
              
-             
-             // Instantiate(rainPrefab, new Vector3(0, 3, 0), Quaternion.identity);
-            //raindropsList.Add(Instantiate(rainPrefab, new Vector3(0, 3, 0), Quaternion.identity));
-
             var rainspawned = Instantiate(rainPrefab, new Vector3(0, 3, 0), Quaternion.identity);
+            
+            //TODO: MOVE INTO THE RAINDROP.CS ITSELF AND HAVE IT DESTROYITSELF ON COLLISION :)))
             Destroy(rainspawned, 0.4f);
          }
          
