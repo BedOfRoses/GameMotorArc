@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RainSpawner : MonoBehaviour
@@ -23,8 +25,10 @@ public class RainSpawner : MonoBehaviour
 
      /* The prefabs that are spawned into this horrible world (simulation) . How does this raindrop not know if it's world is fake,
       how do i know if my world is real and not fake */
-     [SerializeField] private GameObject[] raindrop; // Array for the raindrops
+     [SerializeField] private List<GameObject> raindropsList; // Array for the raindrops
 
+     [SerializeField] private GameObject rainPrefab;
+     
      /* Start amount */
      [SerializeField] private float StartAmountOfRain;
      
@@ -80,12 +84,47 @@ public class RainSpawner : MonoBehaviour
               */
              
              
+             // Instantiate(rainPrefab, new Vector3(0, 3, 0), Quaternion.identity);
+            //raindropsList.Add(Instantiate(rainPrefab, new Vector3(0, 3, 0), Quaternion.identity));
+
+            var rainspawned = Instantiate(rainPrefab, new Vector3(0, 3, 0), Quaternion.identity);
+            raindropsList.Add(rainspawned);
+         }
+         
+         DestroyRainDrop();
+         
+         
+     }
+
+
+     public void OnCollisionEnter(Collision other)
+     {
+         /*If the other collision is the floor, increase the physics mat ground */
+         
+         //TODO GIVE BETTER NAME BLYAT
+         if (other.gameObject.name == "floor" && other.gameObject != null)
+         {
+             //ok we hit the ground, now we increase this floor's physics material
+
+             var otherGameObject = other.gameObject;
              
+             otherGameObject.GetComponent<PhysicMaterial>().dynamicFriction += 1f;
+             otherGameObject.GetComponent<PhysicMaterial>().staticFriction += 1f;
              
+
          }
          
          
          
+     }
+
+
+     public void DestroyRainDrop()
+     {
+         foreach (var raindrop in raindropsList)
+         {
+             Destroy(raindrop, 0.4f);
+         }
      }
      
      
