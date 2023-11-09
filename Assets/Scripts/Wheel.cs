@@ -5,9 +5,19 @@ using UnityEngine;
 
 public class Wheel : MonoBehaviour
 {
+    
+    [SerializeField] private SpringJoint sj;
 
-    [SerializeField] private Rigidbody rb;
 
+    private void Awake()
+    {
+       //  sj = GetComponent<SpringJoint>();
+// 
+       //  sj.maxDistance = 0.6f;
+       //  sj.damper = 0.1f;
+       //  sj.autoConfigureConnectedAnchor = true;
+
+    }
 
     private void FixedUpdate()
     {
