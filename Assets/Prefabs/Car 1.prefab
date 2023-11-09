@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2666067810333297509}
   - component: {fileID: 8749569234981023056}
   - component: {fileID: 8551093162910934654}
+  - component: {fileID: 6021686548232049469}
   m_Layer: 0
   m_Name: Wheel2
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 757601786735960367}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.45054662, y: -0.5718525, z: -0.6400002}
+  m_LocalPosition: {x: -0.45054662, y: -0.75, z: -0.403}
   m_LocalScale: {x: 0.09060976, y: 0.32917494, z: 0.18597017}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105,6 +106,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6021686548232049469
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757601786735960367}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &888731840540496977
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +145,7 @@ GameObject:
   - component: {fileID: 8451794759803453481}
   - component: {fileID: 2920233433863305044}
   - component: {fileID: 2718397000938010045}
+  - component: {fileID: 1306622016771259255}
   m_Layer: 0
   m_Name: Wheel3
   m_TagString: Untagged
@@ -133,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 888731840540496977}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45337057, y: -0.5718525, z: 0.625}
+  m_LocalPosition: {x: 0.45337057, y: -0.75, z: 0.4}
   m_LocalScale: {x: 0.09060976, y: 0.32917494, z: 0.18597017}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210,6 +239,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1306622016771259255
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888731840540496977}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8213238572589960971
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +278,7 @@ GameObject:
   - component: {fileID: 6301423429782929483}
   - component: {fileID: 6780968287624030254}
   - component: {fileID: 5728664318545004347}
+  - component: {fileID: 8372908152532334938}
   m_Layer: 0
   m_Name: Wheel4
   m_TagString: Untagged
@@ -238,7 +295,7 @@ Transform:
   m_GameObject: {fileID: 8213238572589960971}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45337057, y: -0.5718525, z: -0.64}
+  m_LocalPosition: {x: 0.45337057, y: -0.75, z: -0.40299976}
   m_LocalScale: {x: 0.09060976, y: 0.32917494, z: 0.18597017}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -315,6 +372,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &8372908152532334938
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8213238572589960971}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8985954025042824730
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +555,7 @@ MonoBehaviour:
   - {fileID: 888731840540496977}
   - {fileID: 8213238572589960971}
   k: 0
-  rb: {fileID: 0}
+  rb: {fileID: 5979763861123818850}
   F: {x: 0, y: 0, z: 0}
   W: {x: 0, y: 0, z: 0}
   distance: 0
@@ -488,6 +572,7 @@ GameObject:
   - component: {fileID: 2160609019587654796}
   - component: {fileID: 1168568454249075113}
   - component: {fileID: 2741622469154443717}
+  - component: {fileID: 2696518967461010253}
   m_Layer: 0
   m_Name: Wheel1
   m_TagString: Untagged
@@ -504,7 +589,7 @@ Transform:
   m_GameObject: {fileID: 9105241307887931878}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.45054662, y: -0.5718525, z: 0.62500024}
+  m_LocalPosition: {x: -0.45054662, y: -0.75, z: 0.4}
   m_LocalScale: {x: 0.09060976, y: 0.32917494, z: 0.18597017}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -581,3 +666,30 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2696518967461010253
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9105241307887931878}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
