@@ -18,8 +18,13 @@ public class Truck : MonoBehaviour
     [SerializeField] private float strength;
 
 
-    [SerializeField] private float maxDist = 10f;
-
+    [SerializeField] private bool greenKnbobbdy = true;
+    [SerializeField] private bool blueknobby;
+    
+    [SerializeField] private float maxDist = 0.9f;
+ 
+ 
+   
     private void SetUpSpringComp()
     {
         foreach (var wheel in wheels)
@@ -53,9 +58,6 @@ public class Truck : MonoBehaviour
     private void Awake()
     {
         
-       
-        
-       
     }
 
 
@@ -166,24 +168,34 @@ public class Truck : MonoBehaviour
         foreach (var knob in Knobs)
         {
 
-            RaycastHit hit;
+            float compressionRatio; // the distance between the ground we hit with ray cast, and our max distance
+
+            RaycastHit hit = default;
             // from the knob looking straight down.
             if (Physics.Raycast(knob.transform.position, knob.transform.TransformDirection(Vector3.down), maxDist))
             {
                 
-                //TODO FIX SHIT
-                //float hitDist = hit.distance;
-                
-                float compressionRatio; // the distance between the ground we hit with ray cast, and our max distance
-                
-                rb.AddForceAtPosition(Vector3.up*3f,knob.transform.position);
+               // WE DONT WANT TO USE THE RIGID BODY OF THE KNOBS.
 
+                float hitDist = hit.distance;
+
+                compressionRatio = 1 - (hit.distance / maxDist); // This gives us the ratio of compression force
+
+                Debug.Log("compressRate: "+ compressionRatio);
+                
+                Vector3 UpForce = Vector3.up * (compressionRatio * k);
+
+                
+               if(greenKnbobbdy)
+                   Debug.DrawRay(knob.transform.position, knob.transform.TransformDirection(Vector3.down) * maxDist, Color.green);
+               
+               
             }
             else
             {
                 // fully extended
+                Debug.Log("Wheel suspension is fully extended");
             }
-
 
 
         }
@@ -193,14 +205,6 @@ public class Truck : MonoBehaviour
     }
 
 
-    // private void OnDrawGizmos()
-    // {
-    //     foreach (var knob in Knobs)
-    //     {
-    //         Gizmos.color = Color.red;
-    //         
-    //     }
-    // }
 
     private float ForceAmount(float strengf, float lengf, RaycastHit hit)
     {
@@ -209,8 +213,29 @@ public class Truck : MonoBehaviour
         var bingo = (Mathf.Pow(lengf - hit.distance, 2f) / lengf * strengf) / lengf;
         return bingo;
     }
-    
-    
-    
-    
-}
+
+
+   
+} // end ///////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////////////////////////////////// OLD BACKUP / TEMP
+//float hitDist = hit.distance;
+                
+// compressionRatio = 1 - (hit.distance / maxDist); // This gives us the ratio of compression force
+//
+// Debug.Log("compressRate: "+ compressionRatio);
+// Vector3 UpForce = Vector3.up * (compressionRatio * k); // 
+//                 
+//                 
+// knob.gameObject.GetComponent<Rigidbody>().AddForceAtPosition(UpForce,knob.transform.position);
+//                 
+// // rb.AddForceAtPosition(Vector3.up*3f,knob.transform.position);
+//
+// if(greenKnbobbdy)
+//     Debug.DrawRay(knob.transform.position, knob.transform.TransformDirection(Vector3.down) * maxDist, Color.green);
+// if(blueknobby)
+//     Debug.DrawRay(knob.transform.position, knob.transform.TransformDirection(Vector3.down) * hit.distance, Color.blue);
+//
+// rb.AddForceAtPosition(UpForce, transform.position);
