@@ -376,7 +376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4679d36dd5b577949929d862408e67d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raindrop: []
+  raindropsList: []
+  rainPrefab: {fileID: 2175816523509753913, guid: e8c62bfc2194e164783cf320939e9644,
+    type: 3}
   StartAmountOfRain: 0
   MaxAmountOfRaindrops: 0
   bIsRaining: 1
