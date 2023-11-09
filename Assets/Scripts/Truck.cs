@@ -31,12 +31,6 @@ public class Truck : MonoBehaviour
     }
     
     
-    public Vector3 SpringWork()
-    {
-        
-        return new Vector3();
-    }
-    
     void test()
     {
         
