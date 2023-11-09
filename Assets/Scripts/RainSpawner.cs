@@ -107,10 +107,13 @@ public class RainSpawner : MonoBehaviour
              //ok we hit the ground, now we increase this floor's physics material
 
              var otherGameObject = other.gameObject;
-             
-             otherGameObject.GetComponent<PhysicMaterial>().dynamicFriction += 1f;
-             otherGameObject.GetComponent<PhysicMaterial>().staticFriction += 1f;
-             
+
+             otherGameObject.GetComponent<MeshCollider>().material.dynamicFriction += 1f;
+             otherGameObject.GetComponent<MeshCollider>().material.staticFriction += 1f;
+
+             // otherGameObject.GetComponent<PhysicMaterial>().dynamicFriction += 1f;
+             // otherGameObject.GetComponent<PhysicMaterial>().staticFriction += 1f;
+
 
          }
          
