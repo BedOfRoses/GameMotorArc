@@ -6,21 +6,32 @@ using UnityEngine;
 public class TruckV2 : MonoBehaviour
 {
 
-    [SerializeField] private List<GameObject> WheelPrefabs;
-    [SerializeField] private float maxSus;
-    [SerializeField] private float susMulti;
-    [SerializeField] private float dampSens;
-    [SerializeField] private float maxDamper;
-    [SerializeField] private Rigidbody rb;
+    // [SerializeField] private List<GameObject> WheelPrefabs;
+
+    [SerializeField] private WheelCollider frontRight;
+    [SerializeField] private WheelCollider frontLeft;
+    [SerializeField] private WheelCollider backLeft;
+    [SerializeField] private WheelCollider backRight;
 
 
-    private void Awake()
+    [SerializeField] private double accel;
+    [SerializeField] private double breakforce;
+    [SerializeField] private double CurrentAccel = default;
+    [SerializeField] private double Currentbreakforce = default;
+
+
+    private void FixedUpdate()
     {
-        foreach (var wheel in WheelPrefabs)
-        {
-                
-            
-        }
-        
+        if (Input.GetKey(KeyCode.S)) 
+            Currentbreakforce = breakforce;
+        else
+            Currentbreakforce = 0;
+
+
+
     }
-}
+    
+    
+    
+    
+}///////////////// END ///////////////////////////////////////////////////////////////////////////////////////////////////////// 
