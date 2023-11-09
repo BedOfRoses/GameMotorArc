@@ -5,30 +5,21 @@ using UnityEngine;
 
 public class Raindrop : MonoBehaviour
 {
+    /// <summary>
+    /// Currently this is only spawning and setting the material friction higher,
+    /// however it should decrease so imma change that rn
+    /// </summary>
+    /// <param name="other"></param>
     public void OnCollisionEnter(Collision other)
     {
-        
-        
-        Debug.Log("We hit something");
-         
-         
-        /*If the other collision is the floor, increase the physics mat ground */
-         
-        //TODO GIVE BETTER NAME BLYAT
+        /*If the other collision is the floor, decrease the physics mat ground */
         if (other.gameObject.name == "floor" && other.gameObject != null)
         {
             //ok we hit the ground, now we increase this floor's physics material
             var otherGameObject = other.gameObject;
-            
-            otherGameObject.GetComponent<MeshCollider>().material.dynamicFriction += 0.000001f;
-            otherGameObject.GetComponent<MeshCollider>().material.staticFriction += 0.000001f;
+            //TODO, REVISIT AND CREATE BETTER LOGIC THAT DOESNT GO INFINITIVELY LOWER AND LOWER VALUE FOR SLIPPERYNESS
+            otherGameObject.GetComponent<MeshCollider>().material.dynamicFriction -= 0.000001f;
+            otherGameObject.GetComponent<MeshCollider>().material.staticFriction -= 0.000001f;
         }
-         
-         
-         
     }
-
-    
-    
-    
 }///////////////////////////// end
