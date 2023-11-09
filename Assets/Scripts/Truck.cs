@@ -8,6 +8,7 @@ public class Truck : MonoBehaviour
 {
 
     [SerializeField] private GameObject[] wheels;
+    [SerializeField] private GameObject[] Knobs;
     [SerializeField] private float k; // spring-constant
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Vector3 F; // sum of Forces or more commonly known as Force
@@ -16,6 +17,8 @@ public class Truck : MonoBehaviour
     [SerializeField] private float length;
     [SerializeField] private float strength;
 
+
+    [SerializeField] private float maxDist = 10f;
 
     private void SetUpSpringComp()
     {
@@ -98,6 +101,7 @@ public class Truck : MonoBehaviour
        
        
        // CalculateSpring();
+       Suspension();
         
     }
 
@@ -131,6 +135,72 @@ public class Truck : MonoBehaviour
     // }
 
 
+
+    public void Suspension()
+    {
+        
+        // SOURCES https://www.youtube.com/watch?v=LG1CtlFRmpU
+        
+        /* Add to the bottom corners of the vehicle body, these are the Knobs */
+        /* This way it is "pushing" itself up off the ground just like actual wheels would */
+        
+        /* To do this, every frame we perform a raycast from each of the bottom corner of the box
+         - so the front left, front right , the back left, the back right 
+         - going downwards in the local vehicle space for the length of the suspension , in space game about 60cm
+         */
+        
+        /*For the raycast
+         if the raycast doesnt hit anything, then the suspension is fully extended so we dont need to do anything,
+         we can let the physics continue simulating
+         but if it hits something
+         we can calculate the compression ratio of that suspension as a number between 0 and 1.
+         
+         so 0 means its fully extended - it hasnt hit anything - and 1 means it is fully compressed so its at where the raycast was started
+         
+         Then all we need to do is add an upwards force on the box at the appropriate position using the physics engine.
+         We scale this upwards force by the compression ratio, so basically more force acts on the vehicle as the suspension compresses more.
+         
+         */
+        
+        // Going through each of the knobs
+        foreach (var knob in Knobs)
+        {
+
+            RaycastHit hit;
+            // from the knob looking straight down.
+            if (Physics.Raycast(knob.transform.position, knob.transform.TransformDirection(Vector3.down), maxDist))
+            {
+                
+                //TODO FIX SHIT
+                //float hitDist = hit.distance;
+                
+                float compressionRatio; // the distance between the ground we hit with ray cast, and our max distance
+                
+                rb.AddForceAtPosition(Vector3.up*3f,knob.transform.position);
+
+            }
+            else
+            {
+                // fully extended
+            }
+
+
+
+        }
+        
+        
+        
+    }
+
+
+    // private void OnDrawGizmos()
+    // {
+    //     foreach (var knob in Knobs)
+    //     {
+    //         Gizmos.color = Color.red;
+    //         
+    //     }
+    // }
 
     private float ForceAmount(float strengf, float lengf, RaycastHit hit)
     {
