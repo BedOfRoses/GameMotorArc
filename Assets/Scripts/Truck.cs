@@ -20,6 +20,7 @@ public class Truck : MonoBehaviour
     }
     
     
+    
     private void FixedUpdate()
     {
         RaycastHit hit;
