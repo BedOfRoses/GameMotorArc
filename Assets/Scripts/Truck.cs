@@ -97,38 +97,38 @@ public class Truck : MonoBehaviour
        // }
        
        
-       CalculateSpring();
+       // CalculateSpring();
         
     }
 
 
 
-    private void CalculateSpring()
-    {
-
-        foreach (var wheel in wheels)
-        {
-
-            RaycastHit hit;
-            // if the wheel hits the ground or will repel a force 
-            if (Physics.Raycast(wheel.transform.position, wheel.transform.TransformDirection(Vector3.down), out hit,
-                    length))
-            {
-                var fAm = ForceAmount(strength, length,hit);
-                
-                wheel.gameObject.GetComponent<Rigidbody>().AddForceAtPosition(transform.up * fAm, transform.position);
-                
-                // fAm = 3 * length
-                
-            }
-            //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, length))
-            //{
-            //}
-
-        }
-        
-        
-    }
+    // private void CalculateSpring()
+    // {
+    //
+    //     foreach (var wheel in wheels)
+    //     {
+    //
+    //         RaycastHit hit;
+    //         // if the wheel hits the ground or will repel a force 
+    //         if (Physics.Raycast(wheel.transform.position, wheel.transform.TransformDirection(Vector3.down), out hit,
+    //                 length))
+    //         {
+    //             var fAm = ForceAmount(strength, length,hit);
+    //             
+    //             wheel.gameObject.GetComponent<Rigidbody>().AddForceAtPosition(transform.up * fAm, transform.position);
+    //             
+    //             // fAm = 3 * length
+    //             
+    //         }
+    //         //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, length))
+    //         //{
+    //         //}
+    //
+    //     }
+    //     
+    //     
+    // }
 
 
 
