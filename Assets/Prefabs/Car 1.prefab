@@ -278,7 +278,6 @@ GameObject:
   - component: {fileID: 3629026931345542000}
   - component: {fileID: 4699922139638934814}
   - component: {fileID: 3459766974645281792}
-  - component: {fileID: 1386517532776431101}
   m_Layer: 0
   m_Name: Knob1
   m_TagString: Untagged
@@ -295,7 +294,7 @@ Transform:
   m_GameObject: {fileID: 1550782396340505030}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.45054662, y: -0.323, z: 0.4}
+  m_LocalPosition: {x: -0.45054662, y: -0.675, z: 0.4}
   m_LocalScale: {x: 0.09060976, y: 0.32917494, z: 0.18597017}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -372,33 +371,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1386517532776431101
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550782396340505030}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &4264705361286207919
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +383,6 @@ GameObject:
   - component: {fileID: 211553186577776915}
   - component: {fileID: 7435890849246932044}
   - component: {fileID: 8022374817536064772}
-  - component: {fileID: 983488614352687835}
   m_Layer: 0
   m_Name: Knob2
   m_TagString: Untagged
@@ -428,7 +399,7 @@ Transform:
   m_GameObject: {fileID: 4264705361286207919}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.45054662, y: -0.32300016, z: -0.403}
+  m_LocalPosition: {x: -0.45054662, y: -0.6750001, z: -0.403}
   m_LocalScale: {x: 0.09060976, y: 0.32917494, z: 0.18597017}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -505,33 +476,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &983488614352687835
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4264705361286207919}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &6713403356311184628
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +488,6 @@ GameObject:
   - component: {fileID: 3700257768865285645}
   - component: {fileID: 4278370451221409152}
   - component: {fileID: 1051529218690600881}
-  - component: {fileID: 828461072940190838}
   m_Layer: 0
   m_Name: Knob3
   m_TagString: Untagged
@@ -561,7 +504,7 @@ Transform:
   m_GameObject: {fileID: 6713403356311184628}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45337057, y: -0.32300016, z: 0.4}
+  m_LocalPosition: {x: 0.45337057, y: -0.6750001, z: 0.4}
   m_LocalScale: {x: 0.09060976, y: 0.32917494, z: 0.18597017}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -638,33 +581,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &828461072940190838
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6713403356311184628}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &7688711796152435332
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +593,6 @@ GameObject:
   - component: {fileID: 4001326806268654673}
   - component: {fileID: 589746342024730591}
   - component: {fileID: 7816270991974866540}
-  - component: {fileID: 8763435363751300171}
   m_Layer: 0
   m_Name: Knob4
   m_TagString: Untagged
@@ -694,7 +609,7 @@ Transform:
   m_GameObject: {fileID: 7688711796152435332}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45337057, y: -0.32300016, z: -0.40299976}
+  m_LocalPosition: {x: 0.45337057, y: -0.6750001, z: -0.40299976}
   m_LocalScale: {x: 0.09060976, y: 0.32917494, z: 0.18597017}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -771,33 +686,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &8763435363751300171
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7688711796152435332}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &8213238572589960971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,6 +990,9 @@ MonoBehaviour:
   distance: 0
   length: 0
   strength: 0
+  greenKnbobbdy: 1
+  blueknobby: 0
+  maxDist: 0.9
 --- !u!1 &9105241307887931878
 GameObject:
   m_ObjectHideFlags: 0
