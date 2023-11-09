@@ -18,16 +18,10 @@ public class Raindrop : MonoBehaviour
         if (other.gameObject.name == "floor" && other.gameObject != null)
         {
             //ok we hit the ground, now we increase this floor's physics material
-
             var otherGameObject = other.gameObject;
-             
-            otherGameObject.GetComponent<MeshCollider>().material.dynamicFriction += 1f;
-            otherGameObject.GetComponent<MeshCollider>().material.staticFriction += 1f;
-
-            // otherGameObject.GetComponent<PhysicMaterial>().dynamicFriction += 1f;
-            // otherGameObject.GetComponent<PhysicMaterial>().staticFriction += 1f;
-
-
+            
+            otherGameObject.GetComponent<MeshCollider>().material.dynamicFriction += 0.000001f;
+            otherGameObject.GetComponent<MeshCollider>().material.staticFriction += 0.000001f;
         }
          
          
