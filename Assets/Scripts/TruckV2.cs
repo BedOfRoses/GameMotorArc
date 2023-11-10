@@ -58,13 +58,13 @@ public class TruckV2 : MonoBehaviour
     {
         
         // Accelerate forward logic / backwards
-        CurrentAccel = ((Input.GetKey(KeyCode.W) ? 1 : 0) - (Input.GetKey(KeyCode.S) ? 1 : 0)) * accel;
+        CurrentAccel = ((Input.GetKey(KeyCode.W) ? 1 : 0) - (Input.GetKey(KeyCode.S) ? 1 : 0)) * accel; //gives either 1, 0 or -1
         
         // break
-        Currentbreakforce = Input.GetKey(KeyCode.Space) ? breakforce : 0;
+        Currentbreakforce = Input.GetKey(KeyCode.Space) ? breakforce : 0; // either breakforce or 0
         
         // turn left and right
-        currentDegree = maxDegree * ((Input.GetKey(KeyCode.D) ? 1 : 0) - (Input.GetKey(KeyCode.A) ? 1 : 0));
+        currentDegree = maxDegree * ((Input.GetKey(KeyCode.D) ? 1 : 0) - (Input.GetKey(KeyCode.A) ? 1 : 0)); //gives either 1, 0 or -1
         
         foreach (var wCollider in _WheelColliders)
         {
@@ -73,8 +73,8 @@ public class TruckV2 : MonoBehaviour
             wCollider.brakeTorque = (float)Currentbreakforce;
             wCollider.steerAngle = (float)currentDegree;
 
-            
-            
+
+            #region Todo
             //TODO FIX THIS CODE :)
             // wCollider.transform.localScale = Vector3.one;
             // Vector3 position = default;
@@ -83,6 +83,10 @@ public class TruckV2 : MonoBehaviour
             // //wCollider.transform.localScale = Vector3.one;
             // wCollider.transform.position = position;
             // wCollider.transform.rotation = rotation;
+            
+
+            #endregion
+            
             
 
 

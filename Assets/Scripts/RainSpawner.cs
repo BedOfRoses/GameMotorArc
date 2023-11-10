@@ -40,6 +40,7 @@ public class RainSpawner : MonoBehaviour
      /* Max amount of entities*/
      [SerializeField] private float MaxAmountOfRaindrops;
 
+     // TODO: Implement a bounds spawning zone for the raindrops
      
      
      [SerializeField] private bool bIsRaining = true;
@@ -69,9 +70,6 @@ public class RainSpawner : MonoBehaviour
          * in that case move it into update
          */
         
-        
-        
-         
      }
 
      public void FixedUpdate()
@@ -92,7 +90,8 @@ public class RainSpawner : MonoBehaviour
              float randy = random.Next(-7, 7);
              float randz = random.Next(-5, 5);
              
-            var rainspawned = Instantiate(rainPrefab, new Vector3(randx, 0, randz), Quaternion.identity);
+             
+            var rainspawned = Instantiate(rainPrefab, new Vector3(randx, transform.position.y + 3.5f, randz), Quaternion.identity);
             
             //TODO: MOVE INTO THE RAINDROP.CS ITSELF AND HAVE IT DESTROYITSELF ON COLLISION :)))
             // Destroy(rainspawned, 0.4f);
