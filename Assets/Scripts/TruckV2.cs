@@ -22,6 +22,12 @@ public class TruckV2 : MonoBehaviour
     [SerializeField] private double CurrentAccel = default;
     [SerializeField] private double Currentbreakforce = default;
 
+    /* For turning */
+    [SerializeField] private double currentDegree = default;
+    [SerializeField] private double maxDegree = 37.6;
+    
+    
+    
     private void Awake()
     {
         
@@ -36,36 +42,35 @@ public class TruckV2 : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if (Input.GetKey(KeyCode.A))
-            CurrentAccel = accel * -1;
-        else
-            CurrentAccel = 0;
         
+        // Accel forward logic
+        CurrentAccel = ((Input.GetKey(KeyCode.W) ? 1 : 0) - (Input.GetKey(KeyCode.S) ? 1 : 0)) * accel;
+        
+        
+        // Currentbreakforce
 
-        if (Input.GetKey(KeyCode.D))
-            CurrentAccel = accel * 1;
-        else
-            CurrentAccel = 0;
+        Currentbreakforce = Input.GetKey(KeyCode.Space) ? breakforce : 0;
         
+       // if (Input.GetKey(KeyCode.Space)) // We are breaking
+       //     Currentbreakforce = breakforce;
+       // else
+       //     Currentbreakforce = 0; // we are not breaking
         
-        if (Input.GetKey(KeyCode.S)) // We are breaking
-            Currentbreakforce = breakforce;
-        else
-            Currentbreakforce = 0; // we are not breaking
-        
+        currentDegree = maxDegree * ((Input.GetKey(KeyCode.A) ? 1 : 0) - (Input.GetKey(KeyCode.D) ? 1 : 0));
         
         foreach (var wCollider in _WheelColliders)
         {
             // Accel on all wheels, so its 4 drive
             wCollider.motorTorque = (float)CurrentAccel;
             wCollider.brakeTorque = (float)Currentbreakforce;
+            wCollider.steerAngle = (float) currentDegree;
         }
-        
-        
-        
-        
-        
-  
+
+
+
+
+
+
     }
     
     
