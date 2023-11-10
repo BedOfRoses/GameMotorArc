@@ -20,6 +20,13 @@ public class Raindrop : MonoBehaviour
             //TODO, REVISIT AND CREATE BETTER LOGIC THAT DOESNT GO INFINITIVELY LOWER AND LOWER VALUE FOR SLIPPERYNESS
             otherGameObject.GetComponent<MeshCollider>().material.dynamicFriction -= 0.000001f;
             otherGameObject.GetComponent<MeshCollider>().material.staticFriction -= 0.000001f;
+            Destroy(this);
         }
+
+        else
+        {
+            Destroy(this);
+        }
+        
     }
 }///////////////////////////// end

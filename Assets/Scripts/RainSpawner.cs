@@ -6,6 +6,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using Random = System.Random;
 
 public class RainSpawner : MonoBehaviour
 {
@@ -85,11 +86,16 @@ public class RainSpawner : MonoBehaviour
               * Set the spawn/death time for this particle/entity
               * Destroy after given time 
               */
+
+             Random random = new Random();
+             float randx = random.Next(-5, 5);
+             float randy = random.Next(-7, 7);
+             float randz = random.Next(-5, 5);
              
-            var rainspawned = Instantiate(rainPrefab, new Vector3(0, 3, 0), Quaternion.identity);
+            var rainspawned = Instantiate(rainPrefab, new Vector3(randx, 0, randz), Quaternion.identity);
             
             //TODO: MOVE INTO THE RAINDROP.CS ITSELF AND HAVE IT DESTROYITSELF ON COLLISION :)))
-            Destroy(rainspawned, 0.4f);
+            // Destroy(rainspawned, 0.4f);
          }
          
          
