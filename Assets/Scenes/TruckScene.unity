@@ -396,12 +396,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b74203a0748dd2e4c9e852111604c683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontRight: {fileID: 2119590423}
-  frontLeft: {fileID: 1957131975}
-  backLeft: {fileID: 563344227}
-  backRight: {fileID: 128508942}
-  accel: 0
-  breakforce: 0
+  frontRightWheelCollider: {fileID: 2119590423}
+  frontLeftWheelCollider: {fileID: 1957131975}
+  backLeftWheelCollider: {fileID: 563344227}
+  backRightWheelCollider: {fileID: 128508942}
+  _WheelColliders: []
+  accel: 800.3
+  breakforce: 505.405
   CurrentAccel: 0
   Currentbreakforce: 0
 --- !u!1 &563344225
@@ -1001,13 +1002,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831980750}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.16234486, y: -0, z: -0, w: 0.9867341}
+  m_LocalPosition: {x: 0, y: 8.98, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 18.686, y: 0, z: 0}
 --- !u!114 &1831980754
 MonoBehaviour:
   m_ObjectHideFlags: 0
