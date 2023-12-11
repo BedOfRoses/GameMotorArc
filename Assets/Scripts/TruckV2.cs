@@ -22,6 +22,8 @@ public class TruckV2 : MonoBehaviour
     [SerializeField] private Transform backRightWheelTransform;
     #endregion
 
+    
+    
     [SerializeField] private List<Transform> _WheelTransforms;
     
     [SerializeField] private List<WheelCollider> _WheelColliders;
@@ -34,6 +36,12 @@ public class TruckV2 : MonoBehaviour
     /* For turning */
     [SerializeField] private double currentDegree = default;
     [SerializeField] private double maxDegree = 37.6;
+    [SerializeField] private double turnSpeed = 15;
+
+    private Quaternion startRot;
+    private Quaternion endRot;
+
+ 
     
     
     
@@ -46,10 +54,21 @@ public class TruckV2 : MonoBehaviour
         _WheelColliders.Add(backLeftWheelCollider);
         _WheelColliders.Add(backRightWheelCollider);
         
+        // Transforms
         _WheelTransforms.Add(frontLeftWheelTransform);
         _WheelTransforms.Add(frontRightWheelTransform);
         _WheelTransforms.Add(backLeftWheelTransform);
         _WheelTransforms.Add(backRightWheelTransform);
+
+
+        
+       
+        Debug.Log("Transehjul init");
+        foreach (var transehjula in _WheelTransforms)
+        {
+            transehjula.transform.ToString();
+        }
+        
         
     }
 
@@ -66,15 +85,24 @@ public class TruckV2 : MonoBehaviour
         // turn left and right
         currentDegree = maxDegree * ((Input.GetKey(KeyCode.D) ? 1 : 0) - (Input.GetKey(KeyCode.A) ? 1 : 0)); //gives either 1, 0 or -1
         
+        double rotationAmount = maxDegree * currentDegree / maxDegree;
+        
         foreach (var wCollider in _WheelColliders)
         {
             // Accel on all wheels, so its 4 drive
             wCollider.motorTorque = (float)CurrentAccel;
             wCollider.brakeTorque = (float)Currentbreakforce;
             wCollider.steerAngle = (float)currentDegree;
+            
+            // startRot =  wCollider.transform.rotation;
+            // endRot = wCollider.transform.rotation;
+            // endRot.y =+ (float)maxDegree;
+            //
+            // transform.localRotation = Quaternion.Euler(0, (float)rotationAmount, 0);
 
 
             #region Todo
+
             //TODO FIX THIS CODE :)
             // wCollider.transform.localScale = Vector3.one;
             // Vector3 position = default;
@@ -83,16 +111,38 @@ public class TruckV2 : MonoBehaviour
             // //wCollider.transform.localScale = Vector3.one;
             // wCollider.transform.position = position;
             // wCollider.transform.rotation = rotation;
-            
+
 
             #endregion
-            
-            
+
+
 
 
         }
+
+
+        for (int i = 0; i < _WheelTransforms.Count; i++)
+        {
+            _WheelTransforms[i].localRotation = Quaternion.Euler(
+                _WheelTransforms[i].localEulerAngles.x,
+                _WheelColliders[i].steerAngle,
+                _WheelTransforms[i].localEulerAngles.z);
+        }
         
-        
+        // foreach (var transehjul in _WheelTransforms)
+        // {
+        //     
+        //    
+        //     
+        //         
+        //     // Quaternion newRotation = Quaternion.Slerp(startRot,endRot, t: (float)(Time.deltaTime * turnSpeed));
+        //     // transehjul.localRotation = Quaternion.Euler(0, (float)rotationAmount, 90);
+        //     
+        //    // transehjul.rotation = Quaternion.Euler(0,(float)currentDegree,0);
+        //     
+        //     
+        // }
+        //
 
 
 
