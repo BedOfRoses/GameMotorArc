@@ -14,6 +14,9 @@ public class Cloud : MonoBehaviour
     public Mesh mesh;
     public Vector3 minPos;
     public Vector3 maxPos;
+
+    private float TimeToDrop = 0.25f;
+    private float DropTimeCounter = 0;
     
     
     private void Start()
@@ -21,27 +24,27 @@ public class Cloud : MonoBehaviour
         _rainPoolObject = GetComponent<RainPoolObject>();
 
         
-        if (target != null)
-        {
-            mesh = target.GetComponent<MeshFilter>().sharedMesh;
-
-            var bounds = mesh.bounds;
-
-            var position = target.transform.position;
-            minPos = position - bounds.extents;
-            maxPos = position + bounds.extents;
-
-            Vector3 randPos = new Vector3(
-                Random.Range(minPos.x,maxPos.x),
-                Random.Range(minPos.y,maxPos.y),
-                Random.Range(minPos.z,maxPos.z)
-                
-            );
-            
-            Debug.Log("RandPos is: " + randPos.ToString());
-
-
-        }
+        // if (target != null)
+        // {
+        //     mesh = target.GetComponent<MeshFilter>().sharedMesh;
+        //
+        //     var bounds = mesh.bounds;
+        //
+        //     var position = target.transform.position;
+        //     minPos = position - bounds.extents;
+        //     maxPos = position + bounds.extents;
+        //
+        //     Vector3 randPos = new Vector3(
+        //         Random.Range(minPos.x,maxPos.x),
+        //         Random.Range(minPos.y,maxPos.y),
+        //         Random.Range(minPos.z,maxPos.z)
+        //         
+        //     );
+        //     
+        //     Debug.Log("RandPos is: " + randPos.ToString());
+        //
+        //
+        // }
         
         
   
@@ -50,8 +53,16 @@ public class Cloud : MonoBehaviour
 
     private void FixedUpdate()
     {
-            
+        DropTimeCounter += Time.fixedDeltaTime; // adds 0.2 or something
+
+        if (DropTimeCounter >= TimeToDrop)
+        {
+            SpawnDrop();
+            DropTimeCounter = 0;
+        }
         
+        
+
     }
 
 
