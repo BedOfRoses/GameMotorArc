@@ -39,7 +39,12 @@ public class TruckV2 : MonoBehaviour
     private Quaternion startRot;
     private Quaternion endRot;
 
- 
+    #region StateMachineStuff
+
+    
+    
+
+    #endregion
     
     
     
