@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe169b86a2ed46448051705575ec912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initPSize: 4
+  initPSize: 100
   objToPool: {fileID: 1203882698566367014, guid: 960684b601dc2b24db0f8faf7361cd85,
     type: 3}
 --- !u!114 &1378774116
@@ -545,6 +545,8 @@ MonoBehaviour:
   mesh: {fileID: 0}
   minPos: {x: 0, y: 0, z: 0}
   maxPos: {x: 0, y: 0, z: 0}
+  TimeToDrop: 0.02
+  DropTimeCounter: 0
 --- !u!65 &1378774117
 BoxCollider:
   m_ObjectHideFlags: 0
