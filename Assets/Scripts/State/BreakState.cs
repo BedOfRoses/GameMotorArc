@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakState : MonoBehaviour
+public class BreakState : IState
 {
-    // Start is called before the first frame update
-    void Start()
+    private readonly TruckV2 _truckV2;
+    public BreakState(TruckV2 truckV2)
     {
+        _truckV2 = truckV2;
+    }
+    
+    public void Enter()
+    {
+        Debug.Log("Entering BreakState");
+    }
+
+    public void Update()
+    {
+        
+        // if we a
         
     }
 
-    // Update is called once per frame
-    void Update()
+    
+  
+    public void Exit()
     {
-        
+        Debug.Log("Exiting BreakState");    
     }
 }
