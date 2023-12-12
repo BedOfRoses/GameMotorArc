@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DriveState : IState
 {
-    // private readonly PController _player;
-    // public DriveState(PController player)
-    // {
-    //     _player = player;
-    // }
+    private readonly TruckV2 _truckV2;
+    public DriveState(TruckV2 truckV2)
+    {
+        _truckV2 = truckV2;
+    }
     
     public void Enter()
     {
@@ -19,6 +19,8 @@ public class DriveState : IState
     public void Update()
     {
       
+        // Breaking we enter transition to breakstate
+        // if we are not moving we got to idlestate.
         
         
     }
