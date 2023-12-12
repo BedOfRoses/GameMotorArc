@@ -1,18 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TruckStateMachine : MonoBehaviour
+
+[Serializable] public class TruckStateMachine
 {
-    // Start is called before the first frame update
-    void Start()
+    public IState CurrentState { get; private set; }
+    public IdleState _idleState;
+    public BreakState _breakState;
+    public DriveState _driveState;
+
+    public TruckStateMachine(TruckV2 truck)
     {
-        
+        _driveState = new DriveState(truck);
+        _idleState = new IdleState(truck);
+        _breakState = new BreakState(truck);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Initialize(IState startingState)
     {
-        
+        CurrentState = startingState;
+        startingState.Enter();
     }
+
+    public void TransitionTo(IState nextState)
+    {
+        CurrentState.Exit(); // Leave the current state
+        CurrentState = nextState; // Set the current state to the next one
+        nextState.Enter(); // Enter new state
+    }
+
+    public void Update()
+    {
+        CurrentState?.Update();
+    }
+    
 }
