@@ -6,23 +6,33 @@ using UnityEngine;
 public class Wheel : MonoBehaviour
 {
     
-    [SerializeField] private SpringJoint sj;
-
-
-    private void Awake()
+    public Transform tf;
+    public Rigidbody rb;
+    public float distanceToTheGround = 2f;
+    
+    
+    
+    public void FixedUpdate()
     {
-       //  sj = GetComponent<SpringJoint>();
-// 
-       //  sj.maxDistance = 0.6f;
-       //  sj.damper = 0.1f;
-       //  sj.autoConfigureConnectedAnchor = true;
-
+        if (!hitGround())
+        {
+            rb.AddForce(Vector3.up,ForceMode.Force);
+        }
     }
 
-    private void FixedUpdate()
+    bool hitGround()
     {
-        //
-        //
-        //
+        return Physics.Raycast(transform.position, Vector3.down, distanceToTheGround);
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * distanceToTheGround);
+        
+    }
+    
+    
+    
 }
