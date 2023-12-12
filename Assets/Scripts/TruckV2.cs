@@ -23,9 +23,7 @@ public class TruckV2 : MonoBehaviour
     #endregion
 
     
-    
     [SerializeField] private List<Transform> _WheelTransforms;
-    
     [SerializeField] private List<WheelCollider> _WheelColliders;
 
     [SerializeField] private double accel =  800.300;
@@ -59,8 +57,6 @@ public class TruckV2 : MonoBehaviour
         _WheelTransforms.Add(frontRightWheelTransform);
         _WheelTransforms.Add(backLeftWheelTransform);
         _WheelTransforms.Add(backRightWheelTransform);
-
-
         
        
         Debug.Log("Transehjul init");
