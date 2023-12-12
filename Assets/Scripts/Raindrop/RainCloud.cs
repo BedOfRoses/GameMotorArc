@@ -15,7 +15,7 @@ public class Cloud : MonoBehaviour
     public Vector3 minPos;
     public Vector3 maxPos;
 
-    private float TimeToDrop = 0.25f;
+    private float TimeToDrop = 3f;
     private float DropTimeCounter = 0;
     
     
@@ -86,6 +86,9 @@ public class Cloud : MonoBehaviour
                 Random.Range(minPos.z,maxPos.z)
                 
             );
+            
+            obj.transform.Translate(randPos);
+            
             
             Debug.Log("RandPos is: " + randPos.ToString());
 
