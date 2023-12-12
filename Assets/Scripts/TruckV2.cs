@@ -93,31 +93,6 @@ public class TruckV2 : MonoBehaviour
             wCollider.motorTorque = (float)CurrentAccel;
             wCollider.brakeTorque = (float)Currentbreakforce;
             wCollider.steerAngle = (float)currentDegree;
-            
-            // startRot =  wCollider.transform.rotation;
-            // endRot = wCollider.transform.rotation;
-            // endRot.y =+ (float)maxDegree;
-            //
-            // transform.localRotation = Quaternion.Euler(0, (float)rotationAmount, 0);
-
-
-            #region Todo
-
-            //TODO FIX THIS CODE :)
-            // wCollider.transform.localScale = Vector3.one;
-            // Vector3 position = default;
-            // Quaternion rotation = default;
-            // wCollider.GetWorldPose(out position, out rotation);
-            // //wCollider.transform.localScale = Vector3.one;
-            // wCollider.transform.position = position;
-            // wCollider.transform.rotation = rotation;
-
-
-            #endregion
-
-
-
-
         }
 
 
@@ -129,20 +104,7 @@ public class TruckV2 : MonoBehaviour
                 _WheelTransforms[i].localEulerAngles.z);
         }
         
-        // foreach (var transehjul in _WheelTransforms)
-        // {
-        //     
-        //    
-        //     
-        //         
-        //     // Quaternion newRotation = Quaternion.Slerp(startRot,endRot, t: (float)(Time.deltaTime * turnSpeed));
-        //     // transehjul.localRotation = Quaternion.Euler(0, (float)rotationAmount, 90);
-        //     
-        //    // transehjul.rotation = Quaternion.Euler(0,(float)currentDegree,0);
-        //     
-        //     
-        // }
-        //
+       
 
 
 
@@ -154,7 +116,7 @@ public class TruckV2 : MonoBehaviour
     
     
     
-    //TODO: could be fun to implement 4-wheels-drive, front-only, back-only 
+
 
     
     
