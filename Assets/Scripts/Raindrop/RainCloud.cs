@@ -15,40 +15,13 @@ public class Cloud : MonoBehaviour
     public Vector3 minPos;
     public Vector3 maxPos;
 
-    private float TimeToDrop = 3f;
-    private float DropTimeCounter = 0;
+    [SerializeField] private float TimeToDrop = 3f;
+    [SerializeField] private float DropTimeCounter = 0;
     
     
     private void Start()
     {
         _rainPoolObject = GetComponent<RainPoolObject>();
-
-        
-        // if (target != null)
-        // {
-        //     mesh = target.GetComponent<MeshFilter>().sharedMesh;
-        //
-        //     var bounds = mesh.bounds;
-        //
-        //     var position = target.transform.position;
-        //     minPos = position - bounds.extents;
-        //     maxPos = position + bounds.extents;
-        //
-        //     Vector3 randPos = new Vector3(
-        //         Random.Range(minPos.x,maxPos.x),
-        //         Random.Range(minPos.y,maxPos.y),
-        //         Random.Range(minPos.z,maxPos.z)
-        //         
-        //     );
-        //     
-        //     Debug.Log("RandPos is: " + randPos.ToString());
-        //
-        //
-        // }
-        
-        
-  
-        
     }
 
     private void FixedUpdate()
@@ -66,6 +39,14 @@ public class Cloud : MonoBehaviour
     }
 
 
+    private void MoveCloud()
+    {
+        // TODO: ADD Circular movement for the cloud to orbit.
+        
+        // transform.position = new Vector3()
+    }
+    
+
     private void SpawnDrop()
     {
         var obj = _rainPoolObject.GetPooledObject();
@@ -74,23 +55,27 @@ public class Cloud : MonoBehaviour
         {
             mesh = target.GetComponent<MeshFilter>().sharedMesh;
 
-            var bounds = mesh.bounds;
+            Vector3 cloudScale = tf.localScale; // the scale of the transform tf
+            Vector3 cloudExtends = cloudScale * 0.5f; //half of the scale 
 
-            var position = target.transform.position;
-            minPos = position - bounds.extents;
-            maxPos = position + bounds.extents;
+            Vector3 boundPos = tf.position;
+
+            boundPos += tf.TransformDirection(cloudScale * 0.5f);
 
             Vector3 randPos = new Vector3(
-                Random.Range(minPos.x,maxPos.x),
-                Random.Range(minPos.y,maxPos.y),
-                Random.Range(minPos.z,maxPos.z)
-                
+                Random.Range(-cloudExtends.x, cloudExtends.x),
+                Random.Range(-cloudExtends.y, cloudExtends.y),
+                Random.Range(-cloudExtends.z, cloudExtends.z)
             );
+
+            Vector3 finalPos = boundPos + randPos;
             
-            obj.transform.Translate(randPos);
+            obj.transform.position = finalPos;
+            // or 
+             // obj.transform.Translate(randPos);
             
             
-            Debug.Log("RandPos is: " + randPos.ToString());
+            Debug.Log("RandPos is: " + obj.transform.position.ToString());
 
 
         }
