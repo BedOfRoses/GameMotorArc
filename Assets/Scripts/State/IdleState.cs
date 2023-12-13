@@ -17,7 +17,7 @@ public class IdleState : IState
 
     public void Update()
     {
-        if (_truckV2.IsBreaking && !_truckV2.IsMoving)
+        if (_truckV2.IsBreaking)
             _truckV2.truckStateMachine.TransitionTo(_truckV2.truckStateMachine._breakState);
         
         if(_truckV2.IsMoving)
