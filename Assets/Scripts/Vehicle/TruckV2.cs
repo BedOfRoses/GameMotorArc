@@ -74,8 +74,9 @@ public class TruckV2 : MonoBehaviour
 
     void ResetPosition()
     {
-        transform.position = spawnPos;
-        transform.rotation = spawnRot;
+        var transform1 = transform;
+        transform1.position = spawnPos;
+        transform1.rotation = spawnRot;
     }
     
     
