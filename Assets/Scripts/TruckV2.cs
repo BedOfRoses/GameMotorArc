@@ -23,6 +23,9 @@ public class TruckV2 : MonoBehaviour
     [SerializeField] private Transform backRightWheelTransform;
     #endregion
 
+
+    [SerializeField] private Rigidbody rb;
+    
     
     [SerializeField] private List<Transform> _WheelTransforms;
     [SerializeField] private List<WheelCollider> _WheelColliders;
@@ -103,16 +106,17 @@ public class TruckV2 : MonoBehaviour
         
         foreach (var wCollider in _WheelColliders)
         {
-            // Accel on all wheels, so its 4 drive
+            // Accel on all wheels, so its bascially 4-drive
             wCollider.motorTorque = (float)CurrentAccel;
             wCollider.brakeTorque = (float)Currentbreakforce;
-            // wCollider.steerAngle = (float)currentDegree;
+            // wCollider.steerAngle = (float)currentDegree; // This sets every wheel to turn, basically we just steer sideways. No turning with this on
         }
 
+        // Front wheels to turn
         frontLeftWheelCollider.steerAngle = (float)currentDegree;
         frontRightWheelCollider.steerAngle = (float)currentDegree;
         
-        // Update mesh
+        // Update transforms
         WheelRotUpdate(frontLeftWheelCollider,frontLeftWheelTransform);
         WheelRotUpdate(frontRightWheelCollider,frontRightWheelTransform);
         WheelRotUpdate(backLeftWheelCollider,backLeftWheelTransform);
@@ -120,10 +124,10 @@ public class TruckV2 : MonoBehaviour
         
 
         // Statemachine info stuff
-        IsMoving = CurrentAccel != 0;
-
-        IsBreaking = breakforce != 0;
+        IsMoving = rb.velocity.magnitude >= 0.02f;
+        IsBreaking = Currentbreakforce > 0;
         
+
 
     }
 
@@ -137,8 +141,6 @@ public class TruckV2 : MonoBehaviour
 
         tf.position = pos;
         tf.rotation = rot;
-
-
     }
     
     
