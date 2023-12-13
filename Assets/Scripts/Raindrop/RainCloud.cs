@@ -33,7 +33,7 @@ public class Cloud : MonoBehaviour
 
     private void FixedUpdate()
     {
-        DropTimeCounter += Time.fixedDeltaTime; // adds 0.2 or something
+        DropTimeCounter += Time.fixedDeltaTime; // adds 0.2
 
         if (DropTimeCounter >= TimeToDrop)
         {
@@ -48,13 +48,10 @@ public class Cloud : MonoBehaviour
 
     private void MoveCloud()
     {
-        // TODO: ADD Circular movement for the cloud to orbit.
         if (_iscenterPointOfRotationNotNull)
         {
             parentTransform.RotateAround(centerPointOfRotation.position, Vector3.up, rotSpeed * Time.fixedDeltaTime);
         }
-        
-        
     }
     
 
@@ -85,8 +82,8 @@ public class Cloud : MonoBehaviour
             // or 
              // obj.transform.Translate(randPos);
             
-            
-            Debug.Log("RandPos is: " + obj.transform.position.ToString());
+            // Dont need to debug
+            // Debug.Log("RandPos is: " + obj.transform.position.ToString());
 
 
         }
