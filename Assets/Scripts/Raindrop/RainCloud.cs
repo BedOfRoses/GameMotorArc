@@ -19,6 +19,7 @@ public class Cloud : MonoBehaviour
     [SerializeField] private float TimeToDrop = 3f;
     [SerializeField] private float DropTimeCounter = 0;
 
+    // This is for orbiting around
     public Transform centerPointOfRotation;
     
     public float rotSpeed = 3f;
