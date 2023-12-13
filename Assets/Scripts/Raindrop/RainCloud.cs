@@ -10,6 +10,7 @@ public class Cloud : MonoBehaviour
     public RainPoolObject _rainPoolObject;
 
     public Transform tf;
+    public Transform parentTransform;
     public GameObject target;
     public Mesh mesh;
     public Vector3 minPos;
@@ -17,10 +18,15 @@ public class Cloud : MonoBehaviour
 
     [SerializeField] private float TimeToDrop = 3f;
     [SerializeField] private float DropTimeCounter = 0;
+
+    public Transform centerPointOfRotation;
     
-    
+    public float rotSpeed = 3f;
+    private bool _iscenterPointOfRotationNotNull;
+
     private void Start()
     {
+        _iscenterPointOfRotationNotNull = centerPointOfRotation != null;
         _rainPoolObject = GetComponent<RainPoolObject>();
     }
 
@@ -33,7 +39,7 @@ public class Cloud : MonoBehaviour
             SpawnDrop();
             DropTimeCounter = 0;
         }
-        
+        MoveCloud();
         
 
     }
@@ -42,8 +48,12 @@ public class Cloud : MonoBehaviour
     private void MoveCloud()
     {
         // TODO: ADD Circular movement for the cloud to orbit.
+        if (_iscenterPointOfRotationNotNull)
+        {
+            parentTransform.RotateAround(centerPointOfRotation.position, Vector3.up, rotSpeed * Time.fixedDeltaTime);
+        }
         
-        // transform.position = new Vector3()
+        
     }
     
 
