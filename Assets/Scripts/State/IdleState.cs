@@ -20,6 +20,12 @@ public class IdleState : IState
         // When we are beginning to move
         // or
         // When we are braking
+        if (_truckV2.IsBreaking)
+            _truckV2.truckStateMachine.TransitionTo(_truckV2.truckStateMachine._breakState);
+        
+        if(_truckV2.IsMoving)
+            _truckV2.truckStateMachine.TransitionTo(_truckV2.truckStateMachine._driveState);
+        
     }
     
     public void Exit()

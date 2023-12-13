@@ -26,9 +26,9 @@ using UnityEngine;
 
     public void TransitionTo(IState nextState)
     {
-        CurrentState.Exit(); // Leave the current state
-        CurrentState = nextState; // Set the current state to the next one
-        nextState.Enter(); // Enter new state
+        CurrentState.Exit(); 
+        CurrentState = nextState; 
+        nextState.Enter(); 
     }
 
     public void Update()

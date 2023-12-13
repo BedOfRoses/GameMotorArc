@@ -21,7 +21,11 @@ public class DriveState : IState
       
         // Breaking we enter transition to breakstate
         // if we are not moving we got to idlestate.
+        if (_truckV2.IsBreaking)
+            _truckV2.truckStateMachine.TransitionTo(_truckV2.truckStateMachine._breakState);
         
+        if(!_truckV2.IsMoving)
+            _truckV2.truckStateMachine.TransitionTo(_truckV2.truckStateMachine._idleState);
         
     }
 

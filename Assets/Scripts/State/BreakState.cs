@@ -19,6 +19,13 @@ public class BreakState : IState
     {
         
         // if we a
+        if (_truckV2.IsMoving)
+            _truckV2.truckStateMachine.TransitionTo(_truckV2.truckStateMachine._driveState);
+
+        if (!_truckV2.IsMoving)
+        {
+            _truckV2.truckStateMachine.TransitionTo(_truckV2.truckStateMachine._idleState);
+        }
         
     }
 
