@@ -10,19 +10,16 @@ public class RainPoolObject : MonoBehaviour
     [SerializeField] private PooledObject objToPool;
 
     private Stack<PooledObject> stack;
-
-
+    
     private void Start()
     {
         RunPoolSetup();
     }
-
-
+    
     private void RunPoolSetup()
     {
         // Create new pool stack-instance
         stack = new Stack<PooledObject>();
-
         PooledObject inst = null;
 
         for (int i = 0; i < initPSize; i++)
@@ -32,9 +29,7 @@ public class RainPoolObject : MonoBehaviour
             // Start with the object being hidden.
             inst.gameObject.SetActive(false);
             stack.Push(inst);
-            
         }
-
     }
 
     public PooledObject GetPooledObject()
