@@ -18,13 +18,13 @@ public class AudioRandomizer : MonoBehaviour
 
         float random = UnityEngine.Random.Range(0, 100);
 
-        if (random > 33)
-            audioSource.clip = audioClips[0]; // set to first song
-        
+        audioSource.clip = random switch
+        {
+            < 33 => audioClips[0],
+            >= 33 and < 66 => audioClips[1],
+            _ => audioClips[2]
+        };
 
-        audioSource.clip = random is >= 33 and < 66 ? audioClips[1] : // set to second song
-            audioClips[2]; // set to third song
-        
         audioSource.Stop();
         audioSource.Play();
         
