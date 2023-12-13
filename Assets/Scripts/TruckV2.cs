@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TruckV2 : MonoBehaviour
@@ -41,15 +42,23 @@ public class TruckV2 : MonoBehaviour
 
     #region StateMachineStuff
 
-    
-    
+    public bool IsMoving;
+    public bool IsBreaking;
 
+    public TruckStateMachine truckStateMachine;
+    public TMP_Text stateText;
+    
     #endregion
     
     
     
     private void Awake()
     {
+        
+        // Set the state
+        truckStateMachine = new TruckStateMachine(this);
+        truckStateMachine.Initialize(truckStateMachine._idleState); // initialize as idle
+        
         
         // Push all the colliders into the List
         _WheelColliders.Add(frontLeftWheelCollider);
@@ -77,6 +86,10 @@ public class TruckV2 : MonoBehaviour
     private void FixedUpdate()
     {
         
+        truckStateMachine.Update();
+        stateText.text = truckStateMachine.CurrentState.ToString();
+        
+        
         // Accelerate forward logic / backwards
         CurrentAccel = ((Input.GetKey(KeyCode.W) ? 1 : 0) - (Input.GetKey(KeyCode.S) ? 1 : 0)) * accel; //gives either 1, 0 or -1
         
@@ -93,28 +106,40 @@ public class TruckV2 : MonoBehaviour
             // Accel on all wheels, so its 4 drive
             wCollider.motorTorque = (float)CurrentAccel;
             wCollider.brakeTorque = (float)Currentbreakforce;
-            wCollider.steerAngle = (float)currentDegree;
+            // wCollider.steerAngle = (float)currentDegree;
         }
 
-
-        for (int i = 0; i < _WheelTransforms.Count; i++)
-        {
-            _WheelTransforms[i].localRotation = Quaternion.Euler(
-                _WheelTransforms[i].localEulerAngles.x,
-                _WheelColliders[i].steerAngle,
-                _WheelTransforms[i].localEulerAngles.z);
-        }
+        frontLeftWheelCollider.steerAngle = (float)currentDegree;
+        frontRightWheelCollider.steerAngle = (float)currentDegree;
         
-       
+        // Update mesh
+        WheelRotUpdate(frontLeftWheelCollider,frontLeftWheelTransform);
+        WheelRotUpdate(frontRightWheelCollider,frontRightWheelTransform);
+        WheelRotUpdate(backLeftWheelCollider,backLeftWheelTransform);
+        WheelRotUpdate(backRightWheelCollider,backRightWheelTransform);
+        
+
+        // Statemachine info stuff
+        IsMoving = CurrentAccel != 0;
+
+        IsBreaking = breakforce != 0;
+        
+
+    }
 
 
 
+    public void WheelRotUpdate(WheelCollider wColl, Transform tf)
+    {
+        Vector3 pos;
+        Quaternion rot;
+        wColl.GetWorldPose(out pos, out rot);
 
+        tf.position = pos;
+        tf.rotation = rot;
 
 
     }
-    
-    
     
     
 
