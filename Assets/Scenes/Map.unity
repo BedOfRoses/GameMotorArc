@@ -139,7 +139,7 @@ PrefabInstance:
     - target: {fileID: 1015288067554140918, guid: c3fff3c8db840154099db14dd5f43372,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 198.6
+      value: 197.9
       objectReference: {fileID: 0}
     - target: {fileID: 1015288067554140918, guid: c3fff3c8db840154099db14dd5f43372,
         type: 3}
@@ -149,27 +149,27 @@ PrefabInstance:
     - target: {fileID: 1015288067554140918, guid: c3fff3c8db840154099db14dd5f43372,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 905.9
+      value: 922.9
       objectReference: {fileID: 0}
     - target: {fileID: 1015288067554140918, guid: c3fff3c8db840154099db14dd5f43372,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.021020826
       objectReference: {fileID: 0}
     - target: {fileID: 1015288067554140918, guid: c3fff3c8db840154099db14dd5f43372,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1015288067554140918, guid: c3fff3c8db840154099db14dd5f43372,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.99977905
       objectReference: {fileID: 0}
     - target: {fileID: 1015288067554140918, guid: c3fff3c8db840154099db14dd5f43372,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1015288067554140918, guid: c3fff3c8db840154099db14dd5f43372,
         type: 3}
@@ -179,11 +179,16 @@ PrefabInstance:
     - target: {fileID: 1015288067554140918, guid: c3fff3c8db840154099db14dd5f43372,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 177.591
       objectReference: {fileID: 0}
     - target: {fileID: 1015288067554140918, guid: c3fff3c8db840154099db14dd5f43372,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6239364355891400985, guid: c3fff3c8db840154099db14dd5f43372,
+        type: 3}
+      propertyPath: bFunMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6239364355891400985, guid: c3fff3c8db840154099db14dd5f43372,
